@@ -1,7 +1,7 @@
 fast-big-triangle
 ==============
 
-See [https://github.com/mikolalysenko/a-big-triangle].
+See [a-big-triangle](https://github.com/mikolalysenko/a-big-triangle).
 
 ## Install
 
@@ -17,4 +17,4 @@ Draws a fullscreen triangle.
 * `gl` is a WebGL context
 
 ## Credits
-Derived from a-big-triangle, by [https://github.com/mikolalysenko](Mikola Lysenko).
+Derived from a-big-triangle, by [Mikola Lysenko](https://github.com/mikolalysenko).
