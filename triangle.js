@@ -1,30 +1,24 @@
 'use strict'
 
 var weakMap      = typeof WeakMap === 'undefined' ? require('weak-map') : WeakMap
-var createBuffer = require('gl-buffer')
-var createVAO    = require('gl-vao')
 
 var TriangleCache = new weakMap()
 
-function createABigTriangle(gl) {
+function createFastBigTriangle(gl) {
 
-  var triangleVAO = TriangleCache.get(gl)
-  var handle = triangleVAO && (triangleVAO._triangleBuffer.handle || triangleVAO._triangleBuffer.buffer)
-  if(!handle){//} || !gl.isBuffer(handle)) {
-    var buf = createBuffer(gl, new Float32Array([-1, -1, -1, 4, 4, -1]))
-    triangleVAO = createVAO(gl, [
-      { buffer: buf,
-        type: gl.FLOAT,
-        size: 2
-      }
-    ])
-    triangleVAO._triangleBuffer = buf
-    TriangleCache.set(gl, triangleVAO)
+  var vertexBuf = TriangleCache.get(gl)
+  if(!vertexBuf){
+    const vertexBuf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, -1, 4, 4, -1]), gl.STATIC_DRAW);
+    gl.bindBuffer(gl.ARRAY_BUFFER, null);
+    TriangleCache.set(gl, vertexBuf)
   }
-  triangleVAO.bind()
+  //triangleVAO.bind()
+  gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuf);
   gl.disable(gl.DEPTH_TEST);
   gl.drawArrays(gl.TRIANGLES, 0, 3)
-  triangleVAO.unbind()
+  gl.bindBuffer(gl.ARRAY_BUFFER, null);
 }
 
-module.exports = createABigTriangle
+module.exports = createFastBigTriangle
