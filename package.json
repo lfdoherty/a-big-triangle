@@ -1,6 +1,6 @@
 {
   "name": "fast-big-triangle",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Draws a big triangle - a version of a-big-triangle, with fewer dependencies",
   "main": "triangle.js",
   "directories": {
@@ -10,11 +10,13 @@
     "weak-map": "^1.0.5"
   },
   "devDependencies": {
-    "gl-now": "~0.0.4",
-    "gl-shader": "~0.0.6"
+    "beefy": "^2.1.8",
+    "gl-now": "0.0.4",
+    "gl-shader": "0.0.6"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "beefy example/example.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,9 @@
     "draw"
   ],
   "author": "Liam Doherty",
-  "contributors": ["Mikola Lysenko"],
+  "contributors": [
+    "Mikola Lysenko"
+  ],
   "license": "MIT",
   "readmeFilename": "README.md",
   "bugs": {

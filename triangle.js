@@ -8,15 +8,19 @@ function createFastBigTriangle(gl) {
 
   var vertexBuf = TriangleCache.get(gl)
   if(!vertexBuf){
-    const vertexBuf = gl.createBuffer();
+    vertexBuf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, -1, 4, 4, -1]), gl.STATIC_DRAW);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+      -1, -1, 0, 
+      -1,  4, 0, 
+       4, -1, 0]), gl.STATIC_DRAW);
     gl.bindBuffer(gl.ARRAY_BUFFER, null);
     TriangleCache.set(gl, vertexBuf)
   }
   //triangleVAO.bind()
-  gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuf);
   gl.disable(gl.DEPTH_TEST);
+  gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuf);
+  gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 0, 0);
   gl.drawArrays(gl.TRIANGLES, 0, 3)
   gl.bindBuffer(gl.ARRAY_BUFFER, null);
 }
