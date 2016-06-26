@@ -21,6 +21,6 @@ shell.on("gl-init", function() {
 
 shell.on("gl-render", function() {
   shader.bind()
-  shader.attributes.position.enable()
+  //shader.attributes.position.enable()
   drawTriangle(shell.gl)
 })

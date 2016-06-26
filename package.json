@@ -1,6 +1,6 @@
 {
   "name": "fast-big-triangle",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Draws a big triangle - a version of a-big-triangle, with fewer dependencies",
   "main": "triangle.js",
   "directories": {

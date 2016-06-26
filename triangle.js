@@ -20,6 +20,7 @@ function createFastBigTriangle(gl) {
   //triangleVAO.bind()
   gl.disable(gl.DEPTH_TEST);
   gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuf);
+  gl.enableVertexAttribArray(0)
   gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 0, 0);
   gl.drawArrays(gl.TRIANGLES, 0, 3)
   gl.bindBuffer(gl.ARRAY_BUFFER, null);
