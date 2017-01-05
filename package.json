@@ -1,13 +1,12 @@
 {
   "name": "@lfdoherty/fast-big-triangle",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Draws a big triangle - a version of a-big-triangle, with fewer dependencies",
   "main": "triangle.js",
   "directories": {
     "example": "example"
   },
   "dependencies": {
-    "weak-map": "^1.0.5"
   },
   "devDependencies": {
     "beefy": "^2.1.8",

@@ -1,8 +1,8 @@
 'use strict'
 
-var weakMap      = typeof WeakMap === 'undefined' ? require('weak-map') : WeakMap
+//var weakMap      = typeof WeakMap === 'undefined' ? require('weak-map') : WeakMap
 
-var TriangleCache = new weakMap()
+var TriangleCache = new WeakMap()
 
 function createFastBigTriangle(gl) {
 
